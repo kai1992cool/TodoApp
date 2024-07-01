@@ -1,0 +1,7 @@
+  <div [class]="componentAction['Active'] == tasksStatus ?'active-tasks' : 'completed-tasks'">
+    <img  [src]="componentAction['Active'] == tasksStatus  ?'./assets/active-icon.svg':'./assets/completed-icon.svg'" alt="statsIcon" />
+    <div class="percentage-text">
+      <p>{{ Percentage }}%</p>
+      <p>{{componentAction['Active'] == tasksStatus? 'Active Tasks':'Completed Tasks'}}</p>
+    </div>
+  </div>

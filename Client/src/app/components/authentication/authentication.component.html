@@ -1,0 +1,35 @@
+<div class="container">
+  <div [class]=" action == authActions.Register ? 'register-container' : 'login-container'">
+    <div class="title">
+      <h1>To-Do App</h1>
+      <p>Start organizing your life day by day</p>
+    </div>
+    <form [formGroup]="registerForm" (submit)="action == authActions.Register ? register() : login()">
+      <div class="input-wrapper">
+        <label for="username"></label>
+        <input type="text" name="username" id="username" [placeholder]="action == authActions.Register ? 'userName' : 'Enter your username'" formControlName="userName"/>
+        <span class="error" *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">*UserName is required</span>
+        <label for="password"></label>
+        <div class="password-input-wrapper">
+          <input type="password" name="password" id="password" #password [placeholder]="action == authActions.Register? 'password' : 'Enter your password'" formControlName="password"/>
+          <img [src]="action == authActions.Login ? './assets/password-toogle-icon-login.svg':'./assets/password-toogle-icon-register.svg'" (click)="showPassword()"/>
+        </div>
+        <span class="error" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">*password is required</span>
+      </div>
+      <div class="btn-wrapper">
+        <button type="submit">
+          {{ action == authActions.Register ? "Sign Up" : "Sign In" }}
+        </button>
+        <p>
+          {{
+            action == authActions.Register
+              ? "Already have an account? Sign in"
+              : "Don't have an account? Create "
+          }}
+          <span (click)="action == authActions.Register ?  loginPage() : registerPage() ">{{ action == authActions.Register ? "here" : "here" }}</span
+          >.
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

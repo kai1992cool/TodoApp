@@ -1,0 +1,70 @@
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 5rem 0 3rem;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px 0 var(--box-shadow-color);
+  .filters {
+    display: flex;
+    gap: 1rem;
+    select,
+    input {
+      font-weight: 400;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      padding: 5px;
+    }
+  }
+  .btns {
+    display: flex;
+    gap: 1rem;
+    button {
+      padding: 5px 15px;
+      border-radius: 8px;
+      font-weight: 400;
+      cursor: pointer;
+      &:first-child {
+        color: var(--text-white);
+        border: none;
+        background-color: var(--secondary-color);
+      }
+      &:last-child {
+        color: var(--text-black);
+        border: 1px solid black;
+      }
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}
+@media screen and (max-width: 580px){
+  .filter-container{
+    margin: 10px 3rem ;
+    select, input{
+      width: 6.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 520px){
+  .filter-container{
+    margin: 10px 2rem ;
+    select{
+      width: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 430px){
+  .filter-container{
+    margin: 10px 10px 10px 0px ;
+    select{
+      width: 3rem;
+    }
+  }
+}

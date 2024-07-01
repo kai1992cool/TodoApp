@@ -1,0 +1,12 @@
+<header>
+  <p class="heading">{{ headerName | titlecase }}</p>
+  <h1>To-Do App</h1>
+  <div class="btns-wrapper">
+    <div class="add-task-btn" (click)="showAddTaskModel()">
+      <p>Add Task</p>
+      <img src="./assets/add-task-btn.png" alt="add-task-btn" />
+    </div>
+    <button class="sign-out-btn" (click)="logout()">Sign out</button>
+  </div>
+</header>
+<app-mobile-navigation></app-mobile-navigation>

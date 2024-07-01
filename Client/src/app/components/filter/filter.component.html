@@ -1,0 +1,14 @@
+<div class="filter-container">
+  <div class="filters">
+    <select name="status" id="status" (change)="ChangeStatusHandler($event)" [(ngModel)] ='selectedStatus'>
+      <ng-container *ngFor="let filter of filters | keyvalue">
+        <option [value]="filter.value.value" [defaultSelected]="filter.value.default">{{filter.key}}</option>
+      </ng-container>
+    </select>
+    <input type="date" [(ngModel)]="todayDate" (change)="ChangeDateHandler($event)" [max]="maxDate"/>
+  </div>
+  <div class="btns">
+    <button type="button" (click)="applyFilters()">Apply</button>
+    <button type="button" (click)="resetFilters()">Reset</button>
+  </div>
+</div>

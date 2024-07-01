@@ -1,0 +1,21 @@
+<div *ngFor="let tasks of tasksByDate">
+  <div class="header">
+    <h3>{{ isToday(tasks[0].createdOn) ? 'Today\'s' : ''}} <span>{{ componentAction|titlecase }}</span> Tasks</h3>
+    <p >{{ tasks[0].createdOn | date : "EEEE, dd MMMM yyyy" }}</p>
+  </div>
+  <ul class="list">
+    
+    <ng-container *ngFor="let task of tasks ">
+    
+      <li [class]="componentAction == componentActions.Active ? 'active-task' : 'completed'"  (click)="displayDetails(task)">
+        <img [src]="componentAction == componentActions.Active ? './assets/check-box-active.svg' : './assets/check-box-completed.svg'" alt=""/>
+        <p>{{task.title}}</p>
+        
+        <app-task-details-popup *ngIf="clickeditem == task.id" [componentAction]="componentAction" [task]="taskToSend" (refreshTasks)="refreshTasks($event)"></app-task-details-popup>
+      </li>
+    </ng-container>
+
+    
+    <p *ngIf="tasks.length == 0" [style.text-align]="'center'">No {{componentAction}} Tasks Found</p>
+  </ul>
+</div>

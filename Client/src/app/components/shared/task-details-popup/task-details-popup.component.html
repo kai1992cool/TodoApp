@@ -1,0 +1,19 @@
+<div  [class]="componentAction == componentActions.Active ? 'active-task details-box hide' : 'completed details-box hide'">
+    <div class="details">
+      <div class="title">
+        <h4>{{task.title}}</h4>
+        <p [style.color]="componentAction == componentActions.Active ? '#B5B5B5' : '#BA5112'" > {{ getRelativeTime(task.createdOn) }}</p>
+      </div>
+      <div class="description">
+        <h5>Description</h5>
+        <p>{{task.description}}</p>
+      </div>
+    </div>
+    <div class="btns-wrapper">
+      <input type="checkbox" [checked]="task.isCompleted" [disabled]="task.isCompleted" (change)="taskCompleted(task.id)">
+      <div class="btns">
+        <img *ngIf="componentAction == componentActions.Active" src="./assets/edit-task.svg" alt="edit-icon" (click)="editTask(task.id)" />
+        <img [src]=" componentAction == componentActions.Active ? './assets/delete-task-active.svg' : './assets/delete-task-completed.svg'" alt="delete-icon" (click)="deleteTask(task.id)"/>
+      </div>
+    </div>
+ </div>

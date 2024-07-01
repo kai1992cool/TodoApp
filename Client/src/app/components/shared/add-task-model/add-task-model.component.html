@@ -1,0 +1,14 @@
+<div class="add-task-wrapper " *ngIf="openModel()">
+    <form class="add-task-container" [formGroup]="newTaskForm" (submit)="addTask()">
+        <label for="title"></label>
+        <input type="text" placeholder="Add title" id="title" formControlName="title">
+        <span class="error" *ngIf="newTaskForm.get('title')?.invalid && newTaskForm.get('title')?.touched">*Title is Required</span>
+        <label for="description"></label>
+        <textarea name="description" id="description" cols="30" rows="7" placeholder="Add description" formControlName="description" ></textarea>
+        <span class="error" *ngIf="newTaskForm.get('description')?.invalid && newTaskForm.get('description')?.touched">*Description is Required</span>
+        <div class="btns">
+            <button type="button" (click)="cancel()">Cancel</button>
+            <button type="submit">{{taskToUpdate == 0 ? 'Save' : 'Update'}}</button>
+        </div>
+    </form>
+</div> 

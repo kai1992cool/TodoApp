@@ -1,0 +1,107 @@
+header {
+  width: 100%;
+  padding: 1rem 1rem 1rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top:0rem;
+  z-index: 15;
+  background-color: var(--text-white);
+  .heading {
+    font-weight: 400;
+    color: var(--text-black);
+    font-size: 1.5rem;
+  }
+  h1 {
+    display: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    line-height: 45px;
+  }
+  .btns-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    align-items: center;
+    button{
+      height: 2rem;
+    }
+    .add-task-btn {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 12px;
+      padding: 1rem;
+      // width: 9rem;
+      gap:1rem;
+      box-shadow: 0 0 20px 0 var(--box-shadow-color);
+      cursor: pointer;
+      p {
+        font-weight: 400;
+        font-size: 1rem;
+        color: var(--text-black);
+      }
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+    .sign-out-btn {
+      border-radius: 8px;
+      padding: 0.5rem 2.2rem 0.5rem 1rem;
+      outline: none;
+      border: none;
+      color: var(--text-white);
+      font-weight: 400;
+      font-size: 0.8rem;
+      background: var(--secondary-color);
+      background-image: url(../../../../../public/assets/logout.svg);
+      background-repeat: no-repeat;
+      background-position: 4.5rem 7px;
+      cursor: pointer;
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+  @media screen and (max-width: 950px) {
+    h1 {
+      display: block;
+    }
+    .heading {
+      display: none;
+    }
+    .btns-wrapper {
+      .add-task-btn {
+        display: flex;
+      }
+    }
+  }
+  @media screen and (max-width:500px) {
+    h1{
+      font-size: 1.5rem !important  ;
+    }
+  }
+  @media screen and (max-width:440px) {
+    h1{
+      font-size: 1.3rem !important  ;
+    }
+    .btns-wrapper  {
+      gap: .6rem;
+      .sign-out-btn{
+        width: fit-content !important;
+      }
+      .add-task-btn {
+        width: fit-content !important;
+        padding: .5rem !important;
+        p{
+          font-size: .8rem !important;
+        }
+      
+      }
+    }
+  }
+}

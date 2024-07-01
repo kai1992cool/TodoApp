@@ -1,0 +1,8 @@
+<div class="mobile-navigation" (click)="toogleOptions()" tabindex="0">
+  {{ selectedItem }}
+  <div class="options-wrapper" #options>
+    <div class="dashboard" *ngIf="selectedItem !== 'Dashboard'" id="Dashboard" tabindex="0" (click)="selectItem($event)">Dashboard</div>
+    <div class="active" *ngIf="selectedItem !== 'Active'" tabindex="0" id="Active" (click)="selectItem($event)">Active</div>
+    <div class="completed" *ngIf="selectedItem !== 'Completed'" tabindex="0" id="Completed" (click)="selectItem($event)">Completed</div>
+  </div>
+</div>

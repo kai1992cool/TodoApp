@@ -1,0 +1,180 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  background: url(../../../../public/assets/auth-background.jpg);
+
+  .content-container {
+    box-shadow: 4px 4px 16px 0px var(--box-shadow-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+    min-width: 410px;
+    max-width: 450px;
+    width: 40%;
+    padding: 30px 30px;
+    margin: 0rem 2rem;
+    border-radius: 20px;
+
+    .title {
+      text-align: center;
+      h1 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 2.2rem;
+        line-height: 3.1rem;
+      }
+      p {
+        font-weight: 400;
+        font-size: 0.7rem;
+        line-height: 1rem;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        input {
+          padding: 1rem 1rem 1rem 2rem;
+          border-radius: 0.75rem;
+          border: none;
+          outline: none;
+          box-shadow: 2px 2px 8px 0px var(--box-shadow-color);
+
+          &::placeholder {
+            font-weight: 400;
+            color: var(--placeholder-color);
+          }
+        }
+      }
+
+      .error{
+        font-size: .7rem;
+        color: red;
+      }
+
+      .btn-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+
+        button {
+          padding: 1rem 2rem;
+          border-radius: 12px;
+          border: none;
+          outline: none;
+          font-weight: 400;
+          cursor: pointer;
+
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+
+        p {
+          text-align: center;
+          font-size: 0.7rem;
+          font-weight: 400;
+
+          span {
+            color: var(--secondary-color);
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 425px) {
+      min-width: 80% !important;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      form {
+        gap: 0.8rem !important;
+      }
+      .input-wrapper {
+        gap: 0.7rem !important;
+      }
+    }
+  }
+
+  .register-container {
+    @extend .content-container;
+    background: var(--primary-color);
+    .password-input-wrapper {
+      position: relative;
+      cursor: pointer;
+      input {
+        width: 100%;
+      }
+      img {
+        position: absolute;
+        right: 1.4rem;
+        height: 1.5rem;
+        top: 30%;
+      }
+    }
+    .title {
+      color: var(--text-white);
+
+      p {
+        color: var(--text-white);
+      }
+    }
+
+    .btn-wrapper > * {
+      color: var(--text-white);
+    }
+
+    .btn-wrapper button {
+      background: var(--secondary-color);
+    }
+  }
+
+  .login-container {
+    @extend .content-container;
+    background: var(--text-white);
+
+    .title {
+      color: var(--secondary-color);
+
+      p {
+        color: var(--text-black);
+      }
+    }
+    .password-input-wrapper {
+      cursor: pointer;
+      position: relative;
+      input {
+        width: 100%;
+      }
+      img {
+        position: absolute;
+        right: 1.4rem;
+        height: 1.5rem;
+        top: 30%;
+      }
+    }
+    .btn-wrapper > * {
+      color: var(--text-black);
+    }
+
+    .btn-wrapper button {
+      background: var(--primary-color);
+    }
+  }
+}
