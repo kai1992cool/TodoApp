@@ -14,7 +14,7 @@
         <app-task-details-popup *ngIf="clickeditem == task.id" [componentAction]="componentAction" [task]="taskToSend" (refreshTasks)="refreshTasks($event)"></app-task-details-popup>
       </li>
     </ng-container>
-
+    {{clickeditem}}
     
     <p *ngIf="tasks.length == 0" [style.text-align]="'center'">No {{componentAction}} Tasks Found</p>
   </ul>

@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { tasks } from '../../interfaces/tasks';
 import { task } from '../../interfaces/task';
 import { patchDocument } from '../../interfaces/patchDocument';
@@ -12,23 +12,50 @@ import { addTask } from '../../interfaces/addTask';
   providedIn: 'root',
 })
 export class TodoService extends BaseService{
-  
+  tasks = [
+    {
+
+  id: 1,
+  title: 'test',
+  description: 'test',
+  isCompleted:false,
+  createdOn: new Date(),
+    },
+    {
+
+  id: 2,
+  title: 'test2',
+  description: 'test2',
+  isCompleted:false,
+  createdOn: new Date(),
+    },
+    {
+
+  id: 3,
+  title: 'test3',
+  description: 'test3',
+  isCompleted:false,
+  createdOn: new Date(),
+    }
+  ]
   addtodoTask(task: addTask) {
     return this.http.post(`${environment.BASE_API}/ToDoItem`, task);
   }
 
   getallTodoTask(filters: { status: string; date: Date; }): Observable<tasks[]> {
     let params = new HttpParams().set('status', filters.status).set('date', filters.date.toISOString());
+    return of(this.tasks)
     return this.http.get<tasks[]>(`${environment.BASE_API}/ToDoItem`,{params  : params});
   }
 
   getActiveTasks(): Observable<task[]> {
     let params = new HttpParams().set('status', false);
-    return this.http.get<task[]>(`${environment.BASE_API}/ToDoItem/TasksByStatus`,{ params: params });
+    return of(this.tasks) //this.http.get<task[]>(`${environment.BASE_API}/ToDoItem/TasksByStatus`,{ params: params });
   }
   
   getCompletedTasks(): Observable<task[]> {
     let params = new HttpParams().set('status', true);
+    return of(this.tasks)
     return this.http.get<task[]>(`${environment.BASE_API}/ToDoItem/TasksByStatus`,{ params: params });
   }
 

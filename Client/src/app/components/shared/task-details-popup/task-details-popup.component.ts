@@ -52,21 +52,7 @@ export class TaskDetailsPopupComponent {
   }
 
   taskCompleted(taskId: number) {
-    const patchObject: patchDocument = {
-      path: 'IsCompleted',
-      op: 'replace',
-      value: true,
-    };
-    const patchObjectArray: patchDocument[] = [patchObject];
-    this.todoService.completeTask(taskId, patchObjectArray).subscribe({
-      next: () => {
-        this.refreshTasks.emit();
-        this.toaster.info('Task Completed');
-      },
-      error: (error) => {
-        this.toaster.error(error);
-      },
-    });
+    this.refreshTasks.emit();
   }
 
   editTask(taskId: number) {

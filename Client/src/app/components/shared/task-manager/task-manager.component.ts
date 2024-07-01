@@ -107,6 +107,7 @@ export class TaskManagerComponent implements OnInit {
   }
 
   displayDetails(task: task) {
+    console.log(task);
     this.taskToSend = task;
     if (this.clickeditem === task.id) {
       this.clickeditem = 0;
@@ -126,6 +127,7 @@ export class TaskManagerComponent implements OnInit {
   }
 
   refreshTasks(event: any) {
+    // alert(event);
     this.getTasks();
   }
 }
